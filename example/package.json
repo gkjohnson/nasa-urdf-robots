@@ -1,0 +1,21 @@
+{
+  "name": "nasa-urdf-robots",
+  "version": "1.0.0",
+  "description": "Pre-built URDF files of the open source Robonaut 2 and Valkyrie robots from JSC",
+  "scripts": {
+    "start": "static-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkjohnson/nasa-urdf-robots.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gkjohnson/nasa-urdf-robots/issues"
+  },
+  "homepage": "https://github.com/gkjohnson/nasa-urdf-robots#readme",
+  "devDependencies": {
+    "static-server": "^2.2.1",
+    "three": "^0.93.0",
+    "urdf-loader": "^0.1.2"
+  }
+}
