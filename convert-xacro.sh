@@ -14,10 +14,10 @@ for filepath in $1/*.xacro; do
 
     fullname=$(basename $filepath)
     name=${fullname%.*}
-    targetpath=$2/$fullname.urdf
+    targetpath=$2/$name.urdf
 
     echo $filepath ">" $targetpath
 
-    rosrun xacro xacro echo -o "$filepath" "$targetpath"
+    rosrun xacro xacro -o "$targetpath" "$filepath"
 
 done
