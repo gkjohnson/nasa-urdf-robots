@@ -5,11 +5,9 @@ TODO: Image & demo page
 
 ## Source Repositories
 
-TODO include git hash and date of the commit used for the generated URDF files
+[nasa-jsc-robotics/val_description](https://gitlab.com/nasa-jsc-robotics/val_description/tree/77f19dc07700c30ea8f34a572600c2db0355dacc)
 
-https://gitlab.com/nasa-jsc-robotics/val_description
-
-https://gitlab.com/nasa-jsc-robotics/r2_description
+[nasa-jsc-robotics/r2_description](https://gitlab.com/nasa-jsc-robotics/r2_description/tree/654f4f89ff8e802cb7f80c617f0d6dd04483f4b2)
 
 ## Modifications
 
