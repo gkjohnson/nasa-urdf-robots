@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <title>URDF Viewer Example</title>
+
+        <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+        <script src="./node_modules/three/build/three.js"></script>
+        <script src="./node_modules/three/examples/js/controls/OrbitControls.js"></script>
+        <script src="./node_modules/three/examples/js/loaders/STLLoader.js"></script>
+        <script src="./node_modules/three/examples/js/loaders/ColladaLoader.js"></script>
+        <script src="./node_modules/threejs-model-loader/ModelLoader.js"></script>
+        <script src="./node_modules/urdf-loader/URDFLoader.js"></script>
+        <script src="./node_modules/urdf-loader/urdf-viewer-element.js"></script>
+        <script>
+            /* globals URDFViewer */
+            customElements.define('urdf-viewer', URDFViewer);
+        </script>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet"/>
+        <link href="./node_modules/urdf-loader/example/styles.css" rel="stylesheet" />
+        <style>
+            #do-animate {
+                display: none;
+            }
+        </style>
+    </head>
+    <body tabindex="0">
+
+        <div id="menu">
+            <ul id="urdf-options">
+                <li urdf="r2_description/robots/r2b.urdf" color="#263238">Robonaut 2</li>
+                <li urdf="val_description/model/robots/valkyrie_A.urdf" color="#212121">Valkyrie</li>
+            </ul>
+
+            <div id="controls" class="hidden">
+                <div id="toggle-controls"></div>
+                <div id="ignore-joint-limits" class="toggle">Ignore Joint Limits</div>
+                <div id="do-animate" class="toggle">Animate Joints</div>
+                <label>
+                    Up Axis
+                    <select id="up-select">
+                        <option value="+X">+X</option>
+                        <option value="-X">-X</option>
+                        <option value="+Y">+Y</option>
+                        <option value="-Y">-Y</option>
+                        <option value="+Z" selected>+Z</option>
+                        <option value="-Z">-Z</option>
+                    </select>
+                </label>
+                <ul></ul>
+            </div>
+        </div>
+        <urdf-viewer package=".." up="+Z" display-shadow tabindex="0"></urdf-viewer>
+
+        <script src="./node_modules/urdf-loader/example/index.js"></script>
+        <script>
+            /* eslint-disable */
+            /* globals viewer animToggle */
+            document.querySelectorAll('#urdf-options li[urdf]').forEach(el => {
+
+                el.addEventListener('click', e => {
+
+                    const urdf = e.target.getAttribute('urdf');
+                    const color = e.target.getAttribute('color');
+
+                    viewer.urdf = urdf;
+                    document.body.style.backgroundColor = color;
+
+                });
+
+            });
+
+            document.querySelector('#urdf-options li[urdf]').dispatchEvent(new Event('click'));
+        </script>
+    </body>
+</html>

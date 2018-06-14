@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Pre-built URDF files of the open source Robonaut 2 and Valkyrie robots from JSC",
   "scripts": {
-    "start": "static-server"
+    "start": "cd .. && static-server"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,8 @@
   "devDependencies": {
     "static-server": "^2.2.1",
     "three": "^0.93.0",
-    "urdf-loader": "^0.1.2"
-  }
+    "threejs-model-loader": "0.0.1",
+    "urdf-loader": "^0.2.1"
+  },
+  "dependencies": {}
 }
