@@ -30,8 +30,9 @@
 
         <div id="menu">
             <ul id="urdf-options">
-                <li urdf="r2_description/robots/r2b.urdf" color="#263238">Robonaut 2</li>
-                <li urdf="val_description/model/robots/valkyrie_A.urdf" color="#212121">Valkyrie</li>
+                <li urdf="r2_description/robots/r2b.urdf" color="#f44336">Robonaut 2 w/ Legs</li>
+                <li urdf="r2_description/robots/r2c5.urdf" color="#FF9800">Robonaut 2</li>
+                <li urdf="val_description/model/robots/valkyrie_A.urdf" color="#FF5722">Valkyrie</li>
             </ul>
 
             <div id="controls" class="hidden">
@@ -56,8 +57,7 @@
 
         <script src="./node_modules/urdf-loader/example/index.js"></script>
         <script>
-            /* eslint-disable */
-            /* globals viewer animToggle */
+            /* globals viewer */
             document.querySelectorAll('#urdf-options li[urdf]').forEach(el => {
 
                 el.addEventListener('click', e => {
@@ -73,6 +73,8 @@
             });
 
             document.querySelector('#urdf-options li[urdf]').dispatchEvent(new Event('click'));
+
+            document.addEventListener('WebComponentsReady', () => viewer.camera.position.set(1.25, 1.25, -1.25));
         </script>
     </body>
 </html>
