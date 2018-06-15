@@ -21,7 +21,8 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet"/>
         <link href="./node_modules/urdf-loader/example/styles.css" rel="stylesheet" />
         <style>
-            #do-animate {
+            /* Hide the animation toggle and fixed joints */
+            #do-animate, #controls li[joint-type="fixed"] {
                 display: none;
             }
         </style>
@@ -56,9 +57,18 @@
         <urdf-viewer package=".." up="+Z" display-shadow tabindex="0"></urdf-viewer>
 
         <script src="./node_modules/urdf-loader/example/index.js"></script>
-        <script src="./node_modules/urdf-loader/example/dragAndDrop.js"></script>
         <script>
             /* globals viewer */
+
+            // redraw the model every frame because textures might
+            // load in several frames later and not trigger a redraw
+            (function redraw () {
+
+                viewer.redraw && viewer.redraw();
+                requestAnimationFrame(redraw);
+
+            })();
+
             document.querySelectorAll('#urdf-options li[urdf]').forEach(el => {
 
                 el.addEventListener('click', e => {
