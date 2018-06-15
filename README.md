@@ -1,6 +1,8 @@
 # nasa-urdf-robots
 Pre-built URDF files of the open source Robonaut 2 and Valkyrie robots from JSC for easy use without needing to install the ROS platform. The derivative URDF model files provided in this repo are covered under the same license as their original sources.
 
+[View the models!](https://gkjohnson.github.io/nasa-urdf-robots/example/index.bundle.html)
+
 ![NASA URDF Robots](./docs/banner.png)
 
 ## Source Repositories
