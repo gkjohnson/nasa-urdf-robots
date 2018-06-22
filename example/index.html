@@ -54,21 +54,11 @@
                 <ul></ul>
             </div>
         </div>
-        <urdf-viewer package=".." up="+Z" display-shadow tabindex="0"></urdf-viewer>
+        <urdf-viewer package=".." up="+Z" display-shadow tabindex="0" auto-redraw></urdf-viewer>
 
         <script src="./node_modules/urdf-loader/example/index.js"></script>
         <script>
             /* globals viewer */
-
-            // redraw the model every frame because textures might
-            // load in several frames later and not trigger a redraw
-            (function redraw () {
-
-                viewer.redraw && viewer.redraw();
-                requestAnimationFrame(redraw);
-
-            })();
-
             document.querySelectorAll('#urdf-options li[urdf]').forEach(el => {
 
                 el.addEventListener('click', e => {
