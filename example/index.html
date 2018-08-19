@@ -32,9 +32,9 @@
 
         <div id="menu">
             <ul id="urdf-options">
-                <li urdf="r2_description/robots/r2b.urdf" color="#f44336">Robonaut 2 w/ Legs</li>
-                <li urdf="r2_description/robots/r2c5.urdf" color="#FF9800">Robonaut 2</li>
-                <li urdf="val_description/model/robots/valkyrie_A.urdf" color="#FF5722">Valkyrie</li>
+                <li urdf="../r2_description/robots/r2b.urdf" color="#f44336">Robonaut 2 w/ Legs</li>
+                <li urdf="../r2_description/robots/r2c5.urdf" color="#FF9800">Robonaut 2</li>
+                <li urdf="../val_description/model/robots/valkyrie_A.urdf" color="#FF5722">Valkyrie</li>
             </ul>
 
             <div id="controls" class="hidden">
@@ -55,7 +55,15 @@
                 <ul></ul>
             </div>
         </div>
-        <urdf-viewer package=".." up="+Z" display-shadow tabindex="0" auto-redraw></urdf-viewer>
+        <urdf-viewer
+            package="
+                r2_description: ../r2_description,
+                val_description: ../val_description
+            "
+            up="+Z"
+            display-shadow
+            tabindex="0"
+        ></urdf-viewer>
 
         <script src="./node_modules/urdf-loader/example/index.js"></script>
         <script>
@@ -76,7 +84,12 @@
 
             document.querySelector('#urdf-options li[urdf]').dispatchEvent(new Event('click'));
 
-            document.addEventListener('WebComponentsReady', () => viewer.camera.position.set(1.25, 1.25, -1.25));
+            document.addEventListener('WebComponentsReady', () => {
+
+                viewer.camera.position.set(1.25, 1.25, -1.25);
+                viewer.directionalLight.shadow.bias = -0.0001;
+
+            });
         </script>
     </body>
 </html>

@@ -9,10 +9,9 @@
     "static-server": "^2.2.1",
     "three": "^0.93.0",
     "threejs-model-loader": "0.0.1",
+    "urdf-loader": "^0.4.2",
     "wc-loader": "^1.1.12",
     "webpack": "^3.5.3"
   },
-  "dependencies": {
-    "urdf-loader": "^0.3.3"
-  }
+  "dependencies": {}
 }
